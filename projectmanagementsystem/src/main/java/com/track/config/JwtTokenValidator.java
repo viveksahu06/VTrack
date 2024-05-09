@@ -29,7 +29,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
         String jwt= request.getHeader(JwtConstant.JWT_HEADER);
         //format -bearer jwt
-        if(jwt==null){
+        if(jwt!=null){
             jwt=jwt.substring(7);
             try{
                 SecretKey key= Keys.hmacShaKeyFor(JwtConstant.SECREATE_KEY.getBytes());
