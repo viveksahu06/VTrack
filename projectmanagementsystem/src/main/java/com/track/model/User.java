@@ -2,6 +2,7 @@ package com.track.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import lombok.Data;
 import org.hibernate.annotations.Cascade;
 
@@ -11,11 +12,10 @@ import java.util.List;
 
 @Entity
 @Data
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String fullName;
     private String email;
     private String password;
