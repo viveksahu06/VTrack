@@ -1,9 +1,12 @@
 package com.track.controller;
 
 import com.track.model.Chat;
+import com.track.model.Invitation;
 import com.track.model.Project;
 import com.track.model.User;
+import com.track.request.InviteRequest;
 import com.track.responce.MessageResponse;
+import com.track.service.InvitationService;
 import com.track.service.ProjectService;
 import com.track.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,9 @@ public class ProjectController {
     private ProjectService projectService;
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private InvitationService invitationService;
     @GetMapping
     public ResponseEntity<List<Project>>getProjects(@RequestParam(required = false)String category,
                                               @RequestParam(required = false)String tag,
@@ -107,6 +113,36 @@ public class ProjectController {
 
 
         return new ResponseEntity<>(chat, HttpStatus.OK);
+    }
+
+    @PostMapping("/invite")
+    public ResponseEntity<MessageResponse>inviteProject(
+            @RequestBody InviteRequest req,
+            @RequestHeader("Authorization") String jwt,
+            @RequestBody Project project
+    ) throws Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+
+       // Project createdProject=projectService.createProject(project,user);
+
+        invitationService.sendInvitation(req.getEmail(),req.getProjectId());
+        MessageResponse response=new MessageResponse("User invitation sent");
+       return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+    @GetMapping("/accept_invitation")
+    public ResponseEntity<Invitation>acceptInviteProject(
+            @RequestParam String token,
+            @RequestHeader("Authorization") String jwt,
+            @RequestBody Project project
+    ) throws Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+
+        // Project createdProject=projectService.createProject(project,user);
+
+       Invitation invitation= invitationService.acceptInvitation(token, user.getId());
+        projectService.addUserToProject(invitation.getProjectId(),user.getId());
+//        MessageResponse response=new MessageResponse("User invitation sent");
+        return new ResponseEntity<>(invitation, HttpStatus.ACCEPTED);
     }
 
 
