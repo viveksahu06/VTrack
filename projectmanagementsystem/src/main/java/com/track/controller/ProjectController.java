@@ -1,7 +1,9 @@
 package com.track.controller;
 
+import com.track.model.Chat;
 import com.track.model.Project;
 import com.track.model.User;
+import com.track.responce.MessageResponse;
 import com.track.service.ProjectService;
 import com.track.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class ProjectController {
         return new ResponseEntity<>(project, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<Project>createProject(@PathVariable Long projectId,
+    public ResponseEntity<Project>createProject(
                                                  @RequestHeader("Authorization") String jwt,
                                                 @RequestBody Project project
     ) throws Exception {
@@ -53,4 +55,60 @@ public class ProjectController {
 
         return new ResponseEntity<>(createdProject, HttpStatus.OK);
     }
+
+
+    @PatchMapping("/{projectId}")
+    public ResponseEntity<Project>updateProject(@PathVariable Long projectId,
+                                                @RequestHeader("Authorization") String jwt,
+                                                @RequestBody Project project
+    ) throws Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+
+        Project updatedProject=projectService.updateProject(project,projectId);
+
+
+        return new ResponseEntity<>(updatedProject, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{projectId}")
+    public ResponseEntity<MessageResponse>deleteProject(@PathVariable Long projectId,
+                                                @RequestHeader("Authorization") String jwt
+
+    ) throws Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+
+        projectService.deleteProject(projectId,user.getId());
+
+        MessageResponse res=new MessageResponse("project deleted successfully");
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Project>>searchProjects(@RequestParam(required = false)String keyword,
+
+                                                    @RequestHeader("Authorization") String jwt
+    ) throws Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+        List<Project> projects=projectService.searchProject(keyword,user);
+
+        return new ResponseEntity<>(projects, HttpStatus.OK);
+    }
+
+
+
+    @PatchMapping("/{projectId}/chat")
+    public ResponseEntity<Chat>getChatByProjectId(@PathVariable Long projectId,
+                                                @RequestHeader("Authorization") String jwt
+
+    ) throws Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+
+       Chat chat=projectService.getChatByProjectId(projectId);
+
+
+        return new ResponseEntity<>(chat, HttpStatus.OK);
+    }
+
+
+
 }
