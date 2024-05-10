@@ -22,7 +22,7 @@ public class Issue {
     private long projectID;
     private String priority;
     private LocalDate dueDate;
-    private List<String> tage=new ArrayList<>();
+    private List<String> tags=new ArrayList<>();
 
 
 
