@@ -7,7 +7,9 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EmailServiceImpl implements EmailService{
     @Autowired
     private JavaMailSender javaMailSender;

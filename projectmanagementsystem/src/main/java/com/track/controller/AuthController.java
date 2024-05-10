@@ -1,11 +1,13 @@
 package com.track.controller;
 
 import com.track.config.JwtProvider;
+import com.track.model.Subscription;
 import com.track.model.User;
 import com.track.repository.UserRepository;
 import com.track.request.LoginRequest;
 import com.track.responce.AuthResponse;
 import com.track.service.CustomUserDetailImpl;
+import com.track.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,8 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private CustomUserDetailImpl customUserDetail;
+    @Autowired
+    private SubscriptionService subscriptionService;
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse>createUserHandler(@RequestBody User user) throws Exception{
         User isUserExist=userRepository.findByEmail(user.getEmail());
@@ -38,6 +42,10 @@ public class AuthController {
         createdUser.setEmail(user.getEmail());
         createdUser.setFullName(user.getFullName());
         User savedUser=userRepository.save(createdUser);
+
+        //subs
+        subscriptionService.createSubscription(savedUser);
+
         Authentication authentication=new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

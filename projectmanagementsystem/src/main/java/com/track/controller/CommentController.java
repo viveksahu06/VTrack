@@ -44,7 +44,7 @@ public class CommentController {
         res.setMessage("Comment deleted successfully");
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
-    @GetMapping("/issueId}")
+    @GetMapping("/{issueId}")
     public ResponseEntity<List<Comment> >getCommentsByIssueId( @PathVariable Long issueId) {
         List<Comment> comments = commentService.findCommentsByIssueId(issueId);
         return new ResponseEntity<>(comments,HttpStatus.OK);
