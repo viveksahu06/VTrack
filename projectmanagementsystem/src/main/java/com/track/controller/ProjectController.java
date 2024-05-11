@@ -102,7 +102,7 @@ public class ProjectController {
 
 
 
-    @PatchMapping("/{projectId}/chat")
+    @GetMapping("/{projectId}/chat")
     public ResponseEntity<Chat>getChatByProjectId(@PathVariable Long projectId,
                                                 @RequestHeader("Authorization") String jwt
 
@@ -114,34 +114,55 @@ public class ProjectController {
 
         return new ResponseEntity<>(chat, HttpStatus.OK);
     }
-
-    @PostMapping("/invite")
-    public ResponseEntity<MessageResponse>inviteProject(
-            @RequestBody InviteRequest req,
-            @RequestHeader("Authorization") String jwt,
-            @RequestBody Project project
-    ) throws Exception {
-        User user=userService.findUserProfileByJwt(jwt);
-
-       // Project createdProject=projectService.createProject(project,user);
-
-        invitationService.sendInvitation(req.getEmail(),req.getProjectId());
-        MessageResponse response=new MessageResponse("User invitation sent");
-       return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-    @GetMapping("/accept_invitation")
-    public ResponseEntity<Invitation>acceptInviteProject(
-            @RequestParam String token,
-            @RequestHeader("Authorization") String jwt,
-            @RequestBody Project project
-    ) throws Exception {
-        User user=userService.findUserProfileByJwt(jwt);
-
-        // Project createdProject=projectService.createProject(project,user);
-
-       Invitation invitation= invitationService.acceptInvitation(token, user.getId());
-        projectService.addUserToProject(invitation.getProjectId(),user.getId());
+//
+//    @PostMapping("/invite")
+//    public ResponseEntity<MessageResponse>inviteProject(
+//            @RequestBody InviteRequest req,
+//            @RequestHeader("Authorization") String jwt,
+//            @RequestBody Project project
+//    ) throws Exception {
+//        User user=userService.findUserProfileByJwt(jwt);
+//
+//       // Project createdProject=projectService.createProject(project,user);
+//
+//        invitationService.sendInvitation(req.getEmail(),req.getProjectId());
 //        MessageResponse response=new MessageResponse("User invitation sent");
+//       return new ResponseEntity<>(response, HttpStatus.OK);
+//    }
+//    @GetMapping("/accept_invitation")
+//    public ResponseEntity<Invitation>acceptInviteProject(
+//            @RequestParam String token,
+//            @RequestHeader("Authorization") String jwt,
+//            @RequestBody Project project
+//    ) throws Exception {
+//        User user=userService.findUserProfileByJwt(jwt);
+//
+//        // Project createdProject=projectService.createProject(project,user);
+//
+//       Invitation invitation= invitationService.acceptInvitation(token, user.getId());
+//        projectService.addUserToProject(invitation.getProjectId(),user.getId());
+////        MessageResponse response=new MessageResponse("User invitation sent");
+//        return new ResponseEntity<>(invitation, HttpStatus.ACCEPTED);
+//    }
+@PostMapping("/invite")
+public ResponseEntity<MessageResponse> inviteProject(
+        @RequestBody InviteRequest req,
+        @RequestHeader("Authorization") String jwt
+) throws Exception {
+    User user = userService.findUserProfileByJwt(jwt);
+    invitationService.sendInvitation(req.getEmail(), req.getProjectId());
+    MessageResponse response = new MessageResponse("User invitation sent");
+    return new ResponseEntity<>(response, HttpStatus.OK);
+}
+
+    @GetMapping("/accept_invitation")
+    public ResponseEntity<Invitation> acceptInviteProject(
+            @RequestParam String token,
+            @RequestHeader("Authorization") String jwt
+    ) throws Exception {
+        User user = userService.findUserProfileByJwt(jwt);
+        Invitation invitation = invitationService.acceptInvitation(token, user.getId());
+        projectService.addUserToProject(invitation.getProjectId(), user.getId());
         return new ResponseEntity<>(invitation, HttpStatus.ACCEPTED);
     }
 

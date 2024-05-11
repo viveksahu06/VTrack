@@ -14,7 +14,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,30 +21,20 @@ public class Project {
     private String name;
     private String description;
     private String category;
+    // @ElementCollection
+    private List<String> tags = new ArrayList<>();
 
- //   @ElementCollection
-    private List<String> tags=new ArrayList<>();
-
-    //for chat in every project
+    // for chat in every project
     @JsonIgnore
-    @OneToOne(mappedBy ="project",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Chat chat;
+
     @ManyToOne
     private User owner;
 
-    @OneToMany(mappedBy ="project",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Issue>issues=new ArrayList<>();
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Issue> issues = new ArrayList<>();
 
-    @OneToMany
-    private List<User>team=new ArrayList<>();
-
-
-
-
-
-
-
-
-
-
+    @ManyToMany
+    private List<User> team = new ArrayList<>();
 }
