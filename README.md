@@ -55,5 +55,5 @@ The VTrack is a web application designed to streamline project management tasks,
 - **Project Chat:** Enables communication within projects using chat functionality.
 - **Email Notification:** Users receive notifications for project-related activities such as new issues, comments, etc.
 
-Feel free to modify and enhance the README file as needed for your project's documentation.
+
 
