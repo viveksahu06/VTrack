@@ -5,9 +5,9 @@
   <img src="https://img.shields.io/github/stars/your_username/your_repo_name" alt="Stars">
 </div>
 
-# Project Management System
+# VTrack
 
-The Project Management System is a web application designed to streamline project management tasks, allowing users to efficiently create and manage projects. It offers a range of features including project creation, user invitation, issue management, project-based communication through chats, and more.
+The VTrack is a web application designed to streamline project management tasks, allowing users to efficiently create and manage projects. It offers a range of features including project creation, user invitation, issue management, project-based communication through chats, and more.
 
 ### Technologies Used
 
