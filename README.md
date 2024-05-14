@@ -1,8 +1,8 @@
 <div align="center">
   <img src="https://img.shields.io/badge/status-active-brightgreen.svg" alt="Status">
-  <img src="https://img.shields.io/github/issues/your_username/your_repo_name" alt="Issues">
-  <img src="https://img.shields.io/github/forks/your_username/your_repo_name" alt="Forks">
-  <img src="https://img.shields.io/github/stars/your_username/your_repo_name" alt="Stars">
+  <img src="https://img.shields.io/github/issues/viveksahu06/VTrack" alt="Issues">
+  <img src="https://img.shields.io/github/forks/viveksahu06/VTrack" alt="Forks">
+  <img src="https://img.shields.io/github/starsme/viveksahu06/VTrack" alt="Stars">
 </div>
 
 # VTrack
