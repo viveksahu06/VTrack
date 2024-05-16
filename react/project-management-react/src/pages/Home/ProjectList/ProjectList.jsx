@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MixerHorizontalIcon } from "@radix-ui/react-icons";
 import React from "react";
 import Button from "./Button";
+import { ScrollArea } from "@radix-ui/react-scroll-area/dist";
 
 const ProjectList = () =>{
     return(
@@ -11,14 +12,26 @@ const ProjectList = () =>{
                     <Card className="p-5 sticky top-10">
                         <div className='flex justify-between lg:w-[20rem]'>
                             <p className='text-xl tracking-wider'>filters</p>
-                            {/* Make sure Button is imported and implemented correctly */}
-                            {/* Here, assuming Button component accepts variant and size props */}
+                            
                             <Button variant="ghost" size="icon">
-                                {/* Make sure MixerHorizontalIcon is imported correctly */}
+                        
                                 <MixerHorizontalIcon />
                             </Button>
                         </div>
-                        <CardContent className="mt-5"></CardContent>
+                        <CardContent className="mt-5">
+
+                            <ScrollArea className ="space-y-7 h-[70vh]">
+
+                                <div>
+                                    <h1 className ='pb-3 text-gray-400'>
+
+                                    </h1>
+                                </div>
+
+                            </ScrollArea>
+
+                        </CardContent>
+
                     </Card>
                 </section>
                 <section className='projectListSection w-full lg:w-[48rem]'></section>
