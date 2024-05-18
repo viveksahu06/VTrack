@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import ProjectCard from "../Project/ProjectCard";
 
-const tags = [
+export const tags = [
   "all",
   "react",
   "nextjs",

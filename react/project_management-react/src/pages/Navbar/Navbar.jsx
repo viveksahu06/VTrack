@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="flex gap-3 items-center">
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <Button>
+            <Button variant ="outlint" size="icon" className="rounded-full border-2 border-gray-500">
               <PersonIcon />
             </Button>
           </DropdownMenuTrigger>
