@@ -17,18 +17,18 @@ import { Button } from "@/components/ui/button";
 import { PlusIcon } from "@radix-ui/react-icons";
 import CreateIssueForm from "./CreateIssueForm";
 
-const IssueList = ({ title, status }) => {
+export const IssueList = ({ title, status }) => {
   return (
     <div>
       <Dialog>
-        <Card className="w-full md:w-[300] lg:w-[310]">
+        <Card className="w-full md:w-[300px] lg:w-[310px]">
           <CardHeader>
             <CardTitle>{title}</CardTitle>
           </CardHeader>
           <CardContent className="px-2">
             <div className="space-y-2">
-              {[1, 1, 1].map((item) => (
-                <IssueCard key={item} />
+              {[1, 1, 1].map((item, index) => (
+                <IssueCard key={index} />
               ))}
             </div>
           </CardContent>
