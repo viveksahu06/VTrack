@@ -1,5 +1,5 @@
 import { type } from "os"
-import { REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType"
+import { REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionTypes"
 import { API_BASE_URL } from "@/Config/api"
 import axios from "axios"
 

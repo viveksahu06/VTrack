@@ -21,7 +21,7 @@ function App() {
               element={<IssueDetails />}
             />
             <Route path="/upgrade_plan" element={<Subscription />} />
-          </Routes>
+          </Routes> 
         </div>
       ) : (
         <Auth />
