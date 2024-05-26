@@ -1,19 +1,10 @@
-import { type } from "os";
-import { REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionTypes";
-import { API_BASE_URL } from "@/Config/api";
 import axios from "axios";
-import { type } from "os"
-import { GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType"
+import { GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE } from "./ActionTypes";
 import { API_BASE_URL } from "@/Config/api"
-import axios from "axios"
 
 export const register = (userData) => async (dispatch) => {
-  dispatch({
-    type: REGISTER_REQUEST,
-  });
+  dispatch({ type: REGISTER_REQUEST });
   try {
-    // const { data } = await axios.post('$ { API_BASE_URL } /
-    //     auth / signup ', userData)
     const { data } = await axios.post(`${API_BASE_URL}/auth/signup`, userData);
     if (data.jwt) {
       localStorage.setItem("jwt", data.jwt);
@@ -21,30 +12,28 @@ export const register = (userData) => async (dispatch) => {
     }
     console.log("register success", data);
   } catch (error) {
-    console.log(error);
+    console.error("register error", error);
+    dispatch({ type: REGISTER_FAILURE, payload: error.message });
   }
 };
+
 export const login = (userData) => async (dispatch) => {
-  dispatch({
-    type: LOGIN_REQUEST,
-  });
+  dispatch({ type: LOGIN_REQUEST });
   try {
-    // const { data } = await axios.post('$ { API_BASE_URL } /
-    //     auth / signup ', userData)
-    const { data } = await axios.post(`${API_BASE_URL}/auth/signing`, userData);
+    const { data } = await axios.post(`${API_BASE_URL}/auth/signin`, userData);
     if (data.jwt) {
       localStorage.setItem("jwt", data.jwt);
       dispatch({ type: LOGIN_SUCCESS, payload: data });
     }
-    console.log("LOGIN success", data);
+    console.log("login success", data);
   } catch (error) {
-    console.log(error);
+    console.error("login error", error);
+    dispatch({ type: LOGIN_FAILURE, payload: error.message });
   }
 };
+
 export const getUser = () => async (dispatch) => {
-  dispatch({
-    type: GET_USER_REQUEST,
-  });
+  dispatch({ type: GET_USER_REQUEST });
   try {
     const { data } = await axios.get(`${API_BASE_URL}/api/users/profile`, {
       headers: {
@@ -54,7 +43,8 @@ export const getUser = () => async (dispatch) => {
     dispatch({ type: GET_USER_SUCCESS, payload: data });
     console.log("user success", data);
   } catch (error) {
-    console.log(error);
+    console.error("user error", error);
+    // Handle unauthorized access or other errors as needed
   }
 };
 
