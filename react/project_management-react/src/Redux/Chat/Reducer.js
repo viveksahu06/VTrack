@@ -1,46 +1,45 @@
-import * as actionTypes from './ActionTypes';
+import * as actionTypes from './ActionType';
 
-const initialState ={
+const initialState = {
     messages: [],
     loading: false,
     error: null,
     chat: null
 };
 
-
-const ChatReducer = (state = initialState, action) =>{
-    switch(action.type){
+const ChatReducer = (state = initialState, action) => {
+    switch (action.type) {
         case actionTypes.FETCH_MESSAGES_REQUEST:
         case actionTypes.SEND_MESSAGE_REQUEST:
         case actionTypes.FETCH_CHAT_MESSAGES_REQUEST:
-            return{
+            return {
                 ...state,
                 loading: true,
                 error: null
             };
         case actionTypes.FETCH_MESSAGES_SUCCESS:
         case actionTypes.FETCH_CHAT_MESSAGES_SUCCESS:
-            return{
+            return {
                 ...state,
                 loading: false,
                 messages: action.messages
             };
-        case actionTypes.FETCH_MESSAGES_SUCCESS: 
-            return{
+        case actionTypes.SEND_MESSAGE_SUCCESS:
+            return {
                 ...state,
                 loading: false,
                 messages: [...state.messages, action.message]
             };
         case actionTypes.FETCH_CHAT_BY_PROJECT_SUCCESS:
-            return{
+            return {
                 ...state,
                 loading: false,
-                chat: action.chat      
+                chat: action.chat
             };
         case actionTypes.FETCH_MESSAGES_FAILURE:
         case actionTypes.SEND_MESSAGE_FAILURE:
         case actionTypes.FETCH_CHAT_MESSAGES_FAILURE:
-            return{
+            return {
                 ...state,
                 loading: false,
                 error: action.error
@@ -49,4 +48,5 @@ const ChatReducer = (state = initialState, action) =>{
             return state;
     }
 };
+
 export default ChatReducer;
