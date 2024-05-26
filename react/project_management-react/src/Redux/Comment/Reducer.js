@@ -22,15 +22,14 @@ const commentReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         comments: [...state.comments, action.comment],
-        error: null
       };
 
     case actionTypes.DELETE_COMMENT_SUCCESS:
       return {
         ...state,
         loading: false,
-        comments: state.comments.filter(comment => comment.id !== action.commentId),
-        error: null
+        comments: state.comments.filter
+        (comment => comment.id !== action.commentId),
       };
 
     case actionTypes.FETCH_COMMENTS_SUCCESS:
@@ -38,7 +37,6 @@ const commentReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         comments: action.comments,
-        error: null
       };
 
     case actionTypes.CREATE_COMMENT_FAILURE:
