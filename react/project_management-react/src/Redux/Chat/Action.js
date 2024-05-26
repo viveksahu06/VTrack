@@ -1,4 +1,5 @@
-import api from "@/config/api";
+
+import api from "@/Config/api";
 import * as actionTypes from "./ActionTypes";
 
 export const sendMessage = (messageData)=>{
