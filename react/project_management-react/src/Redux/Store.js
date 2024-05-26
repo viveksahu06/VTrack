@@ -17,6 +17,4 @@ const rootReducer = combineReducers({
     subscription: subscriptionReducer,
 });
 
-
-});
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
