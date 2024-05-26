@@ -78,7 +78,7 @@ export const deleteProject =
     dispatch({ type: DELETE_PROJECT_REQUEST });
 
     try {
-      const { Data } = await api.delete("/api/projects" + projectId);
+      const { Data } = await api.delete("/api/projects/" + projectId);
       console.log("delete projects:", data);
       dispatch({ type: DELETE_PROJECT_SUCCESS, projectId });
     } catch (error) {
