@@ -15,6 +15,8 @@ const rootReducer = combineReducers({
     comment: commentReducer,
     issue: issueReducer,
     subscription: subscriptionReducer,
+
+
 });
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
