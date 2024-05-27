@@ -12,7 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import InviteUserForm from "./InviteUserForm";
 import IssueList from "./IssueList";
-import ChatBox from "./Chatbox";
+import ChatBox from "./ChatBox";
 
 const ProjectDetails = () => {
   const handleProjectInvitation = () => {};

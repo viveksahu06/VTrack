@@ -2,7 +2,7 @@ import { API_BASE_URL } from "@/Config/api";
 import axios from "axios";
 import { type } from "os";
 import { GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionTypes"
-import { API_BASE_URL } from "@/Config/api"
+i//mport { API_BASE_URL } from "@/Config/api"
 
 
 export const register = (userData) => async(dispatch) => {
