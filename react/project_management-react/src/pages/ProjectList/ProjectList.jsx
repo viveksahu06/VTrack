@@ -9,11 +9,9 @@ import {
   MixerHorizontalIcon,
 } from "@radix-ui/react-icons";
 
-import  { useState } from "react";
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../Project/ProjectCard";
 import { useSelector } from "react-redux";
-import { store } from "@/Redux/Store";
 
 export const tags = [
   "all",
