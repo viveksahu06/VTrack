@@ -12,7 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import InviteUserForm from "./InviteUserForm";
 import IssueList from "./IssueList";
-import ChatBox from "./ChatBox";
+import ChatBox from "./Chatbox";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProjectById } from "@/Redux/ProjectSer/Action";
 import { useEffect } from "react";
