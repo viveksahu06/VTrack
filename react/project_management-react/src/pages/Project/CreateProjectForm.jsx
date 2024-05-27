@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { tags } from "../ProjectList/ProjectList";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import { useDispatch } from "react-redux";
-import { createProject } from "@/Redux/Project/Action";
+import { createProject } from "@/Redux/ProjectSer/Action";
 
 const CreateProjectForm = () => {
   const dispatch = useDispatch();

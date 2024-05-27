@@ -7,9 +7,7 @@ import { GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOU
 
 
 export const register = (userData) => async(dispatch) => {
-    dispatch({
-        type: REGISTER_REQUEST,
-    });
+    dispatch({ type: REGISTER_REQUEST });
     try {
         // const { data } = await axios.post('$ { API_BASE_URL } /
         //     auth / signup ', userData)
