@@ -1,3 +1,4 @@
+import { User } from "lucide-react";
 import { GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionTypes"
 
 const initialState = {
@@ -18,7 +19,7 @@ export const authReducer = (state = initialState, action) => {
         case LOGIN_SUCCESS:
             return {...state, loading: false, error: null, jwt: action.payload.jwt };
         case GET_USER_SUCCESS:
-            return {...state, loading: false, error: null, jwt: action.payload };
+            return {...state, loading: false, error: null, user: action.payload };
 
         case LOGOUT:
             return initialState;

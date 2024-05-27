@@ -9,11 +9,11 @@ import {
   MixerHorizontalIcon,
 } from "@radix-ui/react-icons";
 
+import  { useState } from "react";
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../Project/ProjectCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { store } from "@/Redux/Store";
-import { fetchProjects, searchProjects } from "@/Redux/ProjectSer/Action";
 
 export const tags = [
   "all",
@@ -132,8 +132,8 @@ const ProjectList = () => {
           <div>
             <div className="space-y-5 min-h-[74vh]">
               {keyword
-                ? project.searchProjects?.map((item,index) => <ProjectCard item = {item} key={item.id*index} />)
-                : project.projects?.map((item) => <ProjectCard key = {item.id} item={item} />)}
+                ? [1, 1, 1].map((item) => <ProjectCard key={item} />)
+                : project.projects?.map((item) => <ProjectCard key={item} />)}
             </div>
           </div>
         </section>

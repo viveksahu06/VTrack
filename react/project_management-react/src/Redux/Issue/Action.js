@@ -7,13 +7,13 @@ export const fetchIssues = (id) => {
     dispatch({ type: actionTypes.FETCH_ISSUES_REQUEST });
     try {
       const response = await api.get(`/api/issues/project/${id}`);
-      console.log("Fetched issues:", response.data);
+      console.log('Fetched issues:', response.data);
       dispatch({
         type: actionTypes.FETCH_ISSUES_SUCCESS,
         issues: response.data,
       });
     } catch (error) {
-      console.log("Error:", error);
+      console.log('Error:', error);
       dispatch({
         type: actionTypes.FETCH_ISSUES_FAILURE,
         error: error.message,
