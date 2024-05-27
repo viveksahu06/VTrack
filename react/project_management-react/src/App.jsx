@@ -10,14 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProjects } from "./Redux/ProjectSer/Action";
 import { getUser } from "./Redux/Auth/Action";
 import { useEffect } from "react";
+import { store } from "./Redux/Store";
 
 function App() {
   const dispatch = useDispatch();
   const{auth} = useSelector(store=>store)
 
   useEffect(()=>{
-    dispatch(getUser())
-    dispatch(fetchProjects({}))
+    dispatch(getUser()) 
+   dispatch(fetchProjects({}))
+   
   },[auth.jwt])
 
   console.log(auth)
@@ -25,7 +27,7 @@ function App() {
   return (
     <>
       {
-      false ? (
+      auth.user? (
         <div>
           <Navbar />
           <Routes>

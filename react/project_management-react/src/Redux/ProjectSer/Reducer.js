@@ -33,8 +33,8 @@ export const projectReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
-                error: null,
-            };
+                error: null
+            }
         case FETCH_PROJECTS_SUCCESS:
             return {
                 ...state,
@@ -68,7 +68,7 @@ export const projectReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 projects: state.projects.filter(
-                    (project) => project.id == action.projectId
+                    (project) => project.id !== action.projectId
                 ),
                 error: null,
             };
