@@ -15,14 +15,17 @@ import {
 import { PersonIcon } from "@radix-ui/react-icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import { store } from "@/Redux/Store";
+import { logout } from "@/Redux/Auth/Action";
+ 
 const Navbar = () => {
   const{auth} = useSelector(store=>store)
-  const navigate=useNavigate()
+  const navigate=useNavigate() 
   const dispatch=useDispatch()
+ 
 
   const handleLogout=()=>{
-    dispatchEvent(logout())
+    dispatch(logout())
   }
   return (
     <div className="border-b py-4 px-5 flex items-center justify-between">

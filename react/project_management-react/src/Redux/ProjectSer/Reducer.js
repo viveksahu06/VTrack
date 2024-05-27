@@ -33,8 +33,8 @@ export const projectReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
-                error: null,
-            };
+                error: null
+            }
         case FETCH_PROJECTS_SUCCESS:
             return {
                 ...state,
