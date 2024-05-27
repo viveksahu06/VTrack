@@ -4,13 +4,16 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PaperPlaneIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const ChatBox = () => {
     const[message,setMessage] =useState("");
+    const dispatch=useDispatch();
     const handleSendMessage = ()=>{
         console.log("message", message)
     }
     const handleMessageChange = (e)=>{
+      dispatch(createmessage)
         setMessage(e.target.value)
 
     }

@@ -1,5 +1,5 @@
 import api from "@/Config/api";
-import * as actionTypes from "./ActionTypes"; // Assuming your action types are in this file
+import * as actionTypes from "./ActionTypes";
 
 // Action for creating a comment
 export const createComment = (commentData) => {
