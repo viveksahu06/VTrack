@@ -84,12 +84,18 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public void addUserToProject(Long projectId, Long userId) throws Exception {
 
+      
         Project project=getProjectById(projectId);
         User user=userService.findUserById(userId);
-        if(!project.getTeam().contains(user)){
+        for(User member:project.getTeam()){
+            if(member.getId().equals(userId)) {
+                return;
+            }
+        }
+
             project.getChat().getUsers().add(user);
             project.getTeam().add(user);
-        }
+
         projectRepository.save(project);
 
     }
