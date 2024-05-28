@@ -20,7 +20,7 @@ function App() {
 
   useEffect(()=>{
     dispatch(getUser()) 
-   dispatch(fetchProjects({}))
+    dispatch(fetchProjects({}))
    
   },[auth.jwt])
 
@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       {
-      true? (
+      auth.user? (
         <div>
           <Navbar />
           <Routes>

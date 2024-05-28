@@ -11,6 +11,7 @@ import { DotsVerticalIcon, PersonIcon } from "@radix-ui/react-icons";
 import UserList from "./UserList";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { deleteIssue } from "@/Redux/Issue/Action";
 
 const IssueCard = ({item,projectId}) => {
   const navigate=useNavigate();

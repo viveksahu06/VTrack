@@ -19,6 +19,8 @@ import CreateIssueForm from "./CreateIssueForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { store } from "@/Redux/Store";
+import { useParams } from "react-router-dom";
+import { fetchIssues } from "@/Redux/Issue/Action";
 
 export const IssueList = ({ title, status }) => {
   const dispatch=useDispatch();
@@ -37,7 +39,7 @@ export const IssueList = ({ title, status }) => {
           </CardHeader>
           <CardContent className="px-2">
             <div className="space-y-2">
-              {issue.issues.filter((issue=>issue.status==status)).Buttonmap((item,) => (
+              {issue.issues.filter(issue=>issue.status==status).map(item => (
                 <IssueCard projectId = {id} item={item} key={item.id} />
               ))}
             </div>

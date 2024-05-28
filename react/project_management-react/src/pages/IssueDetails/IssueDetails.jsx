@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchIssueById, updateIssueStatus } from "@/Redux/Issue/Action";
 import { fetchComments } from "@/Redux/Comment/Action";
+import { store } from "@/Redux/Store";
 
 const IssueDetails = () => {
   const { projectId, issueId } = useParams();
@@ -86,9 +87,9 @@ const IssueDetails = () => {
             <p className="border-b py-3 px-5">Details</p>
             <div className="p-5">
               <div className="space-y-7">
-                <div className="flex gap-10 items-center">
-                  <p className="w-[7rem]">Assignee</p>
-                  {issue.issueDetails?.assignee?.fullName ? <div className="flex items-center gap-3">
+              <div className="flex gap-10 items-center">
+              <p className="w-[7rem]">Assignee</p>
+                  {issue.issueDetails?.assignee?.fullName?<div className="flex items-center gap-3">
                     <Avatar className="h-8 w-8 text-xs">
                       <AvatarFallback>{issue.issueDetails?.assignee?.fullName[0]}</AvatarFallback>
                     </Avatar>
@@ -103,7 +104,7 @@ const IssueDetails = () => {
                 </div>
                 <div className="flex gap-10 items-center">
                   <p className="w-[7rem]">Status</p>
-                  <Badge>{issue.issueDetails?.statues}</Badge>
+                  <Badge>{issue.issueDetails?.status}</Badge>
                 </div>
                 <div className="flex gap-10 items-center">
                   <p className="w-[7rem]">Realese</p>
@@ -113,9 +114,9 @@ const IssueDetails = () => {
                   <p className="w-[7rem]">Reporter</p>
                   <div className="flex items-center gap-3">
                     <Avatar className="h-8 w-8 text-xs">
-                      <AvatarFallback>Z</AvatarFallback>
+                      <AvatarFallback>V</AvatarFallback>
                     </Avatar>
-                    <p>Raam</p>
+                    <p>{issue.issueDetails?.assignee?.fullName}</p>
                   </div>
                 </div>
               </div>

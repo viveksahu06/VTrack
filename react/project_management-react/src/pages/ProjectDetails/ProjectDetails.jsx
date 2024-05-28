@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProjectById } from "@/Redux/ProjectSer/Action";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { store } from "@/Redux/Store";
 
 const ProjectDetails = () => {
   const dispatch = useDispatch();
@@ -43,12 +44,12 @@ const ProjectDetails = () => {
                 <div className="flex">
                   <p className="w-36">Project Lead :</p>
                   <p>{project.projectDetails?.owner.fullName}</p>
-                </div>
+                </div> 
                 <div className="flex">
                   <p className="w-36">Member :</p>
                   <div className="flex items-center gap-2">
                     {project.projectDetails?.team.map((item) => (
-                      <Avatar className="cursor-pointer"  key={index}>
+                      <Avatar className="cursor-pointer"  key={10}>
                         <AvatarFallback>{item.fullName[0]}</AvatarFallback>
                       </Avatar>
                     ))}
@@ -80,7 +81,7 @@ const ProjectDetails = () => {
                 </div>
                 <div className="flex">
                   <p className="w-36">Project Badge :</p>
-                  <Badge>Zosh</Badge>
+                  <Badge>{project.projectDetails?.owner.fullName}</Badge>
                 </div>
               </div>
 

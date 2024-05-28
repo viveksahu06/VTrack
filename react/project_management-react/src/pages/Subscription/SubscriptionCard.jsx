@@ -17,7 +17,7 @@ const SubscriptionCard = ({ data }) => {
     <div className="rounded-xl bg-[rgb(27,27,27)] bg-opacity-20 shadow-[#14173b] shadow-2xl card p-5 space-y-5 w-[18rem]">
       <p>{data.planName}</p>
       <p>
-        <span className="text-xl font-semibold">₹{data.price}/</span>
+        <span className="text-xl font-semibold">{data.price}/</span>
         <span>{data.planType}</span>
       </p>
       {data.planType == "ANNUALLY" && <p className="text-green-500">30% Off</p>}

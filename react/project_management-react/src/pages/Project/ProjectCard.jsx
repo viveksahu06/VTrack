@@ -211,7 +211,8 @@ const ProjectCard = ({ item }) => {
   const dispatch = useDispatch();
   const handleDelete=()=>{
     dispatch(deleteProject({projectId: item.id}))
-  };
+  }; 
+ 
   return (
     <Card className="p-5 w-full lg:max-w-3xl">
       <div className="space-y-5">

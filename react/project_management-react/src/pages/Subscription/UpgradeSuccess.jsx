@@ -1,3 +1,4 @@
+import { store } from "@/Redux/Store";
 import {
   getUserSubscription,
   upgradeSubscription,
@@ -11,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const UpgradeSuccess = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { subscription } = useSelector((store) => store);
+  const { subscription } = useSelector(store => store);
 
   const queryParams = new URLSearchParams(location.search);
 

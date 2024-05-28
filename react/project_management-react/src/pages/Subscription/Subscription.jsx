@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import SubscriptionCard from "./SubscriptionCard";
+import { store } from "@/Redux/Store";
 
 const paidPlan = [
   "Add unlimited project",
@@ -34,7 +35,7 @@ const freePlan = [
 ];
 
 const Subscription = () => {
-  const { subscription } = useSelector((store) => store);
+  const { subscription } = useSelector(store => store);
   return (
     <div className="p-10">
       <h1 className="text-5xl font-semibold py-5 pb-16 text-center">Pricing</h1>

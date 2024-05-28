@@ -6,7 +6,7 @@ const UserList = ({issueDetails}) => {
     const{project}=useSelector(store=>store)
     const dispatch=useDispatch()
     const handleAssignIssueToUser=(userId)=>{
-        dispatch(assignedUserToIssue({issieId:issueDetails.id, userId}))
+        dispatch(assignedUserToIssue({issueId:issueDetails.id, userId}))
     }
   return (
     <>
