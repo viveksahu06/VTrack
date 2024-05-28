@@ -24,7 +24,7 @@ public class PaymentController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/planType")
+    @PostMapping("/{planType}")
     public ResponseEntity<PaymentLinkResponse> createPaymentLink(@PathVariable PlanType planType,
                                                                  @RequestHeader("Authorization") String jwt)throws Exception {
         User user=userService.findUserProfileByJwt(jwt);
