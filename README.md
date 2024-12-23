@@ -47,7 +47,7 @@ https://whimsical.com/info-3CqJxcn5u8M71NmaGWR39u
 
 - **Create Project:** Users can create new projects, specifying details such as name, description, tags, etc.
 - **Send Invitation for Joining Project:** Project owners/admins can invite other users to join their projects.
-- **Filter Projects:** Users can filter projects based on various criteria such as name, tags, category, etc.
+- **Filter Projects:** Users can filter projects based on various criteria such as name, 
 
 ### Issue Management
 
