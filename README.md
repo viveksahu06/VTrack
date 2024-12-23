@@ -24,10 +24,7 @@ https://whimsical.com/info-3CqJxcn5u8M71NmaGWR39u
   - Shadcn UI Library (for UI components)
   
 - **Backend Technologies:**
-  - Spring Boot
-  - Spring Security (for authentication and authorization)
-  - JSON Web Token (JWT) for session management
-  - Spring Starter Mail (for email notifications)
+ 
   
 - **Database:**
   - MySQL
