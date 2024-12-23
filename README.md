@@ -7,19 +7,6 @@
 
 # VTrack
 
-The VTrack is a web application designed to streamline project management tasks, allowing users to efficiently create and manage projects. It offers a range of features including project creation, user invitation, issue management, project-based communication through chats, and more.
-#check the front pages
-https://vtrack-project.vercel.app/ 
-
-#check broad BackEnd Technolgy-------------------
-https://whimsical.com/info-3CqJxcn5u8M71NmaGWR39u
-
-
-### Technologies Used
-
-- **Frontend Technologies:**
-  - React
-  - Redux (for state management)
   - Tailwind CSS (for styling)
   - Shadcn UI Library (for UI components)
   
