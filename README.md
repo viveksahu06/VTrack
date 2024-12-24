@@ -1,27 +1,4 @@
-<div align="center">
-  <img src="https://img.shields.io/badge/status-active-brightgreen.svg" alt="Status">
-  <img src="https://img.shields.io/github/issues/viveksahu06/VTrack" alt="Issues">
-  <img src="https://img.shields.io/github/forks/viveksahu06/VTrack" alt="Forks">
-  <img src="https://img.shields.io/github/stars/viveksahu06/VTrack" alt="Stars">
-</div>
 
-# VTrack
-
-The VTrack is a web application designed to streamline project management tasks, allowing users to efficiently create and manage projects. It offers a range of features including project creation, user invitation, issue management, project-based communication through chats, and more.
-#check the front pages
-https://vtrack-project.vercel.app/ 
-
-#check broad BackEnd Technolgy-------------------
-https://whimsical.com/info-3CqJxcn5u8M71NmaGWR39u
-
-
-### Technologies Used
-
-- **Frontend Technologies:**
-  - React
-  - Redux (for state management)
-  - Tailwind CSS (for styling)
-  - Shadcn UI Library (for UI components)
   
 - **Backend Technologies:**
   - Spring Boot
